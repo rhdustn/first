@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let ab = "appleelppa";
+    let arr = [];
+
+    function isPalindromeRecursive(word){
+        return isPalindromeRecursiveHelper(word, 0, word.length - 1);
+    }
+
+    function isPalindromeRecursiveHelper(word, beginPos, endPos){
+        if (beginPos >= endPos) {
+            return true;
+        }
+        if (word[beginPos] !== word[endPos]) {
+            return false;
+        }
+        return isPalindromeRecursiveHelper(word, beginPos + 1, endPos - 1);
+    }
+    
+    console.log(isPalindromeRecursive(ab));
+</script>
+</html>
