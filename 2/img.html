@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .modal{
+        display: none;
+        background-color: rgba(0, 0, 0, 0.297);
+        width: 300px;
+        height: 300px;
+        
+    }
+    .close{
+        width: 50px;
+        height: 30px;
+        
+        background-color:  whitesmoke;
+    }
+</style>
+<body>
+<div class="main">
+<div><h3>이미지 갤러리</h3></div>
+<div class="gallery">
+    <img class="modal-content" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7n_AEZCvgwfOvMjXOlzXNHkmIb8FXrWbZuA&usqp=CAU" all="">
+    <img class="modal-content" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb2aGn_AVvsFUYN_ZIU_uXKdh3hzfqlIXEmQ&usqp=CAU" all="">
+    <img class="modal-content" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRERc_b6FHp-1dMcpt4n4J3VgtaHSOdZQbxtQ&usqp=CAU" all="">
+
+</div>
+<div class="modal">
+    <div class="close">닫기</div>
+    <div class="modal-image-container"></div>
+</div>
+</body>
+<script>
+const modal = document.querySelector(".modal");
+const modalClick = document.querySelectorAll(".modal-content")
+const modalImageContainer = document.querySelector(".modal-image-container");
+
+modalClick.forEach((image) => {
+        image.addEventListener("click", function () {
+            const clickedImageSrc = image.getAttribute("src");
+            modalImageContainer.innerHTML = `<img src="${clickedImageSrc}" alt="">`;
+            modal.style.display = "block";
+        });
+    });
+
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal || event.target.classList.contains("close")) {
+            modal.style.display = "none";
+        }
+    });
+
+</script>
+</html>
